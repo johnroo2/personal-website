@@ -41,6 +41,8 @@ export default function ResponsiveCarousel({setOpenData, carouselRef, }:Props) {
         );
     });
 
+    Card.displayName = "Card"
+
     return (
         <div style={{ width: "80%", position: "relative" }}>
             <ResponsiveContainer

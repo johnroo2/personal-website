@@ -25,7 +25,9 @@ const ProjectListing = ({data, response}:{data:Project, response:Function}) => {
     bg-sky-50/[0.05] px-4 rounded-md shadow-xl shadow-sky-100/[0.1]" ref={plref}
     style={{
       gridTemplateColumns: "90% 10%"
-    }}>
+    }}
+    data-aos="fade-right"
+    data-aos-duration="1000">
       <section className="flex flex-row items-center gap-4 h-full p2-4">
         <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden p-[10px] flex items-center justify-center">
           <div className="absolute inset-0 vignette-icon"/>
@@ -84,8 +86,7 @@ export default function Index() {
   }).ref
 
   const p_projects = useParallax<any>({
-    translateY: ["350px", "-100px"],
-    scale: [1.1, 0.95]
+    translateY: ["300px", "-150px"],
   }).ref
 
   const p_contacts= useParallax<any>({
@@ -106,9 +107,9 @@ export default function Index() {
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [openData]);
 
@@ -183,7 +184,7 @@ export default function Index() {
         <div className="flex flex-row justify-between gap-16 items-center">
           <img src="/john-lazhall.jpeg" alt="john" className="h-[300px] rounded-md"/>
           <span className="text-sky-50 text-3xl font-thin max-w-[50vw] leading-[2.5rem]">
-          Hi, I'm Ryan Zhu! I'm an avid UW GEESE WARRIOR with a keen interest in computer science. 
+          Hi, I&apos;m Ryan Zhu! I&apos;m an avid UW GEESE WARRIOR with a keen interest in computer science. 
           I enjoy building websites and applications, and love learning new things!
           I also have a hobby in composing and music; I have experimented with many different styles of music, 
           ranging from late-romantic orchestral to modern film/VGM soundtracks!
@@ -204,7 +205,7 @@ export default function Index() {
           <ProjectListing data={item} response={() => {setOpenData(item)}}/>
         </div>)}
       </div>
-      <div className="relative w-full flex flex-col items-center z-[100] gap-4 mb-[15rem]" ref={p_contacts}>
+      <div className="relative w-full flex flex-col items-center z-[100] gap-4 mb-[20rem]" ref={p_contacts}>
         <ParaTitle title="Contact"/>
         <div className="mt-12 rounded-lg overflow-hidden p-8 w-[80%]"
         style={{
@@ -214,7 +215,7 @@ export default function Index() {
         }}>
           <section className="text-sky-50 flex flex-col items-start justify-start gap-4 text-2xl font-light">
             <span className="mt-8">
-            I'd love to get in contact with you! Fill out the form and I will respond as soon as I can.
+            I&apos;d love to get in contact with you! Fill out the form and I will respond as soon as I can.
             </span>
             <span className="">
             Feel free to contact me about anything!

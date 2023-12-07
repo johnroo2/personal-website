@@ -79,7 +79,7 @@ export default function ProjectModal({openData, setOpenData, modalRef}:Props){
                     </div>
                   </div>
                   <div className="flex flex-row flex-wrap gap-3 mt-3">
-                    {openData?.tags && openData.tags.map(item => <Tag name={item}/>)}
+                    {openData?.tags && openData.tags.map((item, key) => <div key={key}><Tag name={item}/></div>)}
                   </div>
                   <div className="w-[90%] mt-4 transition-opacity delay-300 duration-300"
                   style={{

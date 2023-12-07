@@ -79,7 +79,7 @@ left: "#666666", right: "#101010", date: "Sep 2023", showcase: true,
 tags: ["TypeScript", "Flask", "PostgreSQL", "Material UI", "TailwindCSS", "Cohere.AI"],
 body: 
 <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
-As our team's submission for Hack the North 2023, Jobber is an online platform which facilitates the exchange of services. 
+As our team&apos;s submission for Hack the North 2023, Jobber is an online platform which facilitates the exchange of services. 
 Any user on the platform may make a posting for a service that they want done or a good they would like to borrow. More notably, Jobber uses Cohere AI and the Google Maps API to make this 
 service much more streamlined. 
 </div>},
@@ -115,7 +115,7 @@ body:
         Flourish exists as a completed full-stack application.
       </span>
       <span>
-        The backend is no longer being publically hosted, so the current deployment doesn't really do anything.
+        The backend is no longer being publically hosted, so the current deployment doesn&apos;t really do anything.
       </span>
     </div>},
   
@@ -130,7 +130,7 @@ body:
         online judges like DMOJ and PEZ. 
       </span> 
       <span>
-        The backend is no longer being publically hosted, so most features don't work on the Vercel deployment.
+        The backend is no longer being publically hosted, so most features don&apos;t work on the Vercel deployment.
       </span>
     </div>},
   
@@ -144,7 +144,7 @@ body:
       Using neuroevolution and TensorFlow models, this application trains cars to drive around
       any track as quickly as possible using sensors on their sides. While iterating through hundreds of generations,
       the data is stored on the side to be studied later. This project was made as a part of 
-      Google Development Group Edmonton's machine learning bootcamp.
+      Google Development Group Edmonton&apos;s machine learning bootcamp.
       </span>
     </div>},
 
@@ -155,7 +155,7 @@ body:
     body: 
     <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
       <span>
-      Using Neat-Python's neuroevolution library, this application trains models to play Flappy 
+      Using Neat-Python&apos;s neuroevolution library, this application trains models to play Flappy 
       Bird. The graphics of the game used to train the models are made using PyGame. 
       </span>
       <span>
@@ -209,7 +209,7 @@ body:
     tags: ["Python", "Pandas/Numpy", "TensorFlow"],
     body: 
     <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
-    My submission involves a single Jupyter notebook submitted for The Learning Agency Lab's Kaggle competition, 
+    My submission involves a single Jupyter notebook submitted for The Learning Agency Lab&apos;s Kaggle competition, 
     which involves improving knowledge-tracing methods for game-based learning. My notebook uses Tensorflow to train 
     models and the Polars library over Pandas to save memory.
     </div>},
@@ -220,8 +220,8 @@ body:
     tags: ["Python", "Pandas/Numpy", "TensorFlow"],
     body: 
     <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
-    <span>Our team's submission involves a single Jupyter notebook submitted for 
-    Google's 2023 Smartphone Decimeter Challenge which involves produce better positions, bridging the connection between 
+    <span>Our team&apos;s submission involves a single Jupyter notebook submitted for 
+    Google&apos;s 2023 Smartphone Decimeter Challenge which involves produce better positions, bridging the connection between 
     the geo-spatial information of finer human behavior and mobile internet with improved granularity.
     </span>
     <span>
