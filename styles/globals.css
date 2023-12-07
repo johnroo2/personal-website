@@ -2,26 +2,187 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+  background-color: rgb(0, 8, 20)
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.crosses-img-first{
+  --tw-bg: rgb(0, 8, 20);
+  --tw-cross: rgb(32, 51, 72);
+  background-color: var(--tw-bg);
+  opacity: 1;
+  background: radial-gradient(circle, transparent 20%, var(--tw-bg) 20%, var(--tw-bg) 80%, transparent 80%, transparent), 
+  radial-gradient(circle, transparent 20%, var(--tw-bg) 20%, var(--tw-bg) 80%, transparent 80%, transparent) 50px 50px, 
+  linear-gradient(var(--tw-cross) 4px, transparent 4px) 0 -2px, 
+  linear-gradient(90deg, var(--tw-cross) 4px, var(--tw-bg) 4px) -2px 0;
+  background-size: 200px 200px, 100px 100px, 50px 50px, 50px 50px;
+  width: 250vw;
+}
+
+.bg-poly1{
+  background-image: url('/polywave1.png');
+  opacity: 0.25;
+}
+
+.bg-poly2{
+  background-image: url('/polywave2.png');
+  opacity: 0.25;
+}
+
+.bg-poly3{
+  background-image: url('/polywave3.png');
+  opacity: 0.25;
+}
+
+@keyframes polywave-translate {
+  0% {
+      transform: translateX(0) translateZ(0) scaleY(0.5)
+  }
+  50% {
+      transform: translateX(-25%) translateZ(0) scaleY(0.2)
+  }
+  100% {
+      transform: translateX(-50%) translateZ(0) scaleY(0.5)
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.polywave-wrapper {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right:0;
+  top:0;
+  width: 100vw;
+  background: linear-gradient(0deg, 
+  transparent 0%,
+  rgba(83, 126, 157, 0.3) 20%,
+  hsla(197, 59%, 61%, 0.3) 40%, 
+  hsla(222, 64%, 70%, 0.3) 60%, 
+  hsla(292, 47%, 74%, 0.3) 80%,
+  hsla(336, 67%, 43%, 0.3) 100%);
+}
+
+.polywave-inner{
+  position: absolute;
+  left:0;
+  right:0;
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
+}
+
+.polywave {
+  position: absolute;
+  left: 0;
+  width: 5760px;
+  height: 100%;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+
+.polywave-animation .polywave1 {
+  animation: polywave-translate 12s linear infinite;
+}
+
+.polywave-animation .polywave2 {
+  animation: polywave-translate 18s linear infinite;
+}
+
+.polywave-animation .polywave3 {
+  animation: polywave-translate 22s linear infinite;
+}
+
+.start{
+  background: hsla(336, 67%, 43%, 0.3)
+}
+
+.intermediate {
+  background: linear-gradient(rgb(83,126,157) 0%, rgba(83,126,157, 0.5) 50%, 
+  rgba(83,126,157, 0.2) 75%, transparent 100%)
+}
+
+.pulse{
+  transition-property: all;
+  animation: oscillate 2.5s infinite linear
+}
+
+@keyframes oscillate{
+  0%{
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  50%{ 
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.modal-blur{
+  backdrop-filter: blur(5px);
+}
+
+.light-blur{
+  backdrop-filter: blur(1px);
+}
+
+.line-gradient{
+  background: linear-gradient(0deg,
+  rgba(0, 0, 0, 0.4) 0%,
+  transparent 50%,
+  rgba(0, 0, 0, 0.4) 100%)
+}
+
+.angled-gradient{
+  background: linear-gradient(150deg,
+  rgba(255, 255, 255, 0.12) 0%,
+  rgba(0, 0, 0, 0.5) 100%)
+}
+
+.carousel-card:hover{
+  transform: scale(1.05)
+}
+
+.para-skew{
+  transform: skewX(-20deg)
+}
+
+.self-scroll{
+  animation: image-scroll 18s infinite linear
+}
+
+@keyframes image-scroll{
+  0%{
+    transform: translateX(0%)
+  }
+  50%{
+    transform: translateX(-60%)
+  }
+  100%{
+    transform: translateX(0%)
+  }
+}
+
+.vignette {
+  background:radial-gradient(circle, transparent 0%, rgba(2,0,36,0.1) 10%, rgba(9,9,121,0.20) 40%, 
+  rgba(0,20,40,0.75) 100%);
+  backdrop-filter: blur(1px);
+}
+
+.vignette-icon {
+  background:radial-gradient(circle, transparent 0%, rgba(2,0,36,0.1) 10%, rgba(9,9,121,0.20) 40%, 
+  rgba(50,80,125,0.55) 100%);
+}
+
+a{
+  color: rgb(200, 210, 240);
+}
+
+a:hover{
+  color: rgb(150, 160, 205);
 }
