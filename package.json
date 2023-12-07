@@ -6,12 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "vercel": "vercel build"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
     "antd": "^5.11.5",
     "aos": "^2.3.4",
     "axios": "^1.6.2",
