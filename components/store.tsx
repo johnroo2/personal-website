@@ -24,7 +24,7 @@ export type Project = {
     left: "#666666", right: "#101010", date: "Sep 2023", showcase: true,
     tags: ["JavaScript", "NextJS", "NodeJS", "MongoDB", "TailwindCSS"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span>
       Level up your learning today with Slime Scholars! Collect adorable slimes while learning from lessons designed to 
       help maximize success in our modern world. 
@@ -43,7 +43,7 @@ export type Project = {
     left: "#666666", right: "#101010", date: "Aug 2023", showcase: true,
     tags: ["TypeScript", "Material UI", "TailwindCSS"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span className="font-bold italic">NOTE: I do NOT distribute, purchase, sell, or use marijuana. </span>
       <span>
         ALCannTrace is an e-commerce platform used to help distribute various marijuana products under ALink Computer Solutions Inc. 
@@ -61,7 +61,7 @@ title: "Darkest Dungeons", subtitle: "Roguelike Bullet Hell",
 left: "#666666", right: "#101010", date: "Dec 2022", showcase: true,
 tags: ["Java"],
 body: 
-<div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+<div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
  <span>Darkest Dungeons is a spin-off of the game Realm of the Mad God that I made in high school as a final
   project for my computer science class. The game features six playable characters, four randomly-generated 
   dungeons to make your way through, and dozens of items and enemies to find along the way.
@@ -78,7 +78,7 @@ title: "Jobber", subtitle: "Problems & Services",
 left: "#666666", right: "#101010", date: "Sep 2023", showcase: true,
 tags: ["TypeScript", "Flask", "PostgreSQL", "Material UI", "TailwindCSS", "Cohere.AI"],
 body: 
-<div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+<div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
 As our team&apos;s submission for Hack the North 2023, Jobber is an online platform which facilitates the exchange of services. 
 Any user on the platform may make a posting for a service that they want done or a good they would like to borrow. More notably, Jobber uses Cohere AI and the Google Maps API to make this 
 service much more streamlined. 
@@ -89,7 +89,7 @@ title: "Normal Chess", subtitle: "Chess AI",
 left: "#666666", right: "#101010", date: "Nov 2023", showcase: true,
 tags: ["Python", "ViteJS", "TypeScript", "Flask", "TensorFlow", "TailwindCSS"],
 body: 
-<div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+<div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
   <span>
     Normal Chess is a simple web application made using ViteJS and react-router that allows users to play with
     a chess bot that could be placed at (tested) ~1500-1600 lichess elo. The model uses Tensorflow models and 
@@ -105,7 +105,7 @@ body:
     left: "#666666", right: "#101010", date: "Mar 2023", showcase: false,
     tags: ["JavaScript", "NodeJS", "Firebase", "TailwindCSS"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span className="italic">
         How do you manage your time? 
       </span>
@@ -124,10 +124,10 @@ body:
     left: "#666666", right: "#101010", date: "Jul 2023", showcase: false,
      tags: ["TypeScript", "NextJS", "Django", "SQLite", "Ant Design", "TailwindCSS"],
      body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span>
-        Flounder is a full-stack application that is designed as a contest math site similar to 
-        online judges like DMOJ and PEZ. 
+        Flounder is a full-stack application that is designed as a contest math site structured like many 
+        online competitive programming judges like LeetCode, DMOJ and PEZ. 
       </span> 
       <span>
         The backend is no longer being publically hosted, so most features don&apos;t work on the Vercel deployment.
@@ -139,7 +139,7 @@ body:
      left: "#666666", right: "#101010", date: "Jun 2021", showcase: false,
      tags: ["Python", "TensorFlow"],
      body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span>
       Using neuroevolution and TensorFlow models, this application trains cars to drive around
       any track as quickly as possible using sensors on their sides. While iterating through hundreds of generations,
@@ -153,7 +153,7 @@ body:
     left: "#666666", right: "#101010", date: "Apr 2021", showcase: false,
     tags: ["Python", "Neat-Python"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span>
       Using Neat-Python&apos;s neuroevolution library, this application trains models to play Flappy 
       Bird. The graphics of the game used to train the models are made using PyGame. 
@@ -164,11 +164,11 @@ body:
     </div>},
   
      {cover:"", icon:"/abs-icon.png", banner:"/abs-banner.png",
-     title: "Agripowers Breeding Systems", subtitle: "I LOVE FARMERS",
+     title: "Agripowers Breeding Systems", subtitle: "Crop Management System",
      left: "#666666", right: "#101010", date: "Apr 2023", showcase: false,
      tags: ["TypeScript", "NextJS", "Ant Design", "TailwindCSS", "Java Spring", "SQLite"],
      body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span>
         Agripowers Breeding Systems (ABS) manages crop yields and damages under ALink Computer Solutions Inc. 
         As a custom-built web application, ABS allows its owner to manage the users of the app and customize
@@ -184,11 +184,11 @@ body:
     </div>},
 
     {cover:"", icon:"/alcportal-icon.png", banner:"/alcportal-banner.png",
-    title: "A&L Canada Client Portal", subtitle: "I LOVE FARMERS",
+    title: "A&L Canada Client Portal", subtitle: "Customer Management",
     left: "#666666", right: "#101010", date: "Jun 2023", showcase: false,
     tags: ["TypeScript", "NextJS", "Ant Design", "TailwindCSS"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
     <span>
         The A&L Canada Client Portal is a streamlined, all-in-one single sign on service that allows customers of the company to 
         manage whatever they need. In the banner, the online payment system is shown, which uses the Moneris API to handle these 
@@ -208,7 +208,7 @@ body:
     left: "#666666", right: "#101010", date: "Feb 2023", showcase: false,
     tags: ["Python", "Pandas/Numpy", "TensorFlow"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
     My submission involves a single Jupyter notebook submitted for The Learning Agency Lab&apos;s Kaggle competition, 
     which involves improving knowledge-tracing methods for game-based learning. My notebook uses Tensorflow to train 
     models and the Polars library over Pandas to save memory.
@@ -219,7 +219,7 @@ body:
     left: "#666666", right: "#101010", date: "Dec 2023", showcase: false,
     tags: ["Python", "Pandas/Numpy", "TensorFlow"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
     <span>Our team&apos;s submission involves a single Jupyter notebook submitted for 
     Google&apos;s 2023 Smartphone Decimeter Challenge which involves produce better positions, bridging the connection between 
     the geo-spatial information of finer human behavior and mobile internet with improved granularity.
@@ -234,9 +234,8 @@ body:
     left: "#666666", right: "#101010", date: "Dec 2023", showcase: false,
     tags: ["TypeScript", "NextJS", "TailwindCSS"],
     body: 
-    <div className="flex flex-col text-sky-50/[0.95] text-[1.1em] relative z-[1000] gap-4">
+    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
       <span>This website was made using AOS and React-Parallax, along with the other tags listed above. </span> 
-      <span>(For more information, close this pop-up or refresh the page)</span> 
     </div>},
   ]
   

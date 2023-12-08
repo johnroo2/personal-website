@@ -3,10 +3,12 @@ import { useParallax } from "react-scroll-parallax";
 import { TypeAnimation } from "react-type-animation";
 import { IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaDiscord, FaInstagram, FaInfoCircle } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaDiscord, FaInstagram, FaInfoCircle, FaYoutube } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { HiCursorClick } from "react-icons/hi";
 import { IoMdMail } from "react-icons/io";
+
+import { useWindowSize } from "@uidotdev/usehooks";
 
 import { PolyWave } from "@/components/polywave";
 import ResponsiveCarousel from "@/components/carousel";
@@ -15,33 +17,33 @@ import ParaTitle from "@/components/paratitle";
 import ContactForm from "@/components/contactform";
 import { Project, projectData } from "@/components/store";
 
-const ProjectListing = ({data, response}:{data:Project, response:Function}) => {
-  const plref = useParallax<any>({
-    
-  }).ref
+const ProjectListing = ({data, response, screenType}:{data:Project, response:Function, screenType:number}) => {
+  const responsive = (arr:any[]) =>  arr[screenType]
 
   return(
-    <div className="text-sky-50 text-2xl w-[70%] font-work grid
-    bg-sky-50/[0.05] px-4 rounded-md shadow-xl shadow-sky-100/[0.1]" ref={plref}
+    <div className="text-sky-50 text-2xl w-[70%] font-work grid bg-gradient-to-r
+    from-sky-50/[0.05] to-sky-50/[0.10] px-4 rounded-md shadow-xl shadow-sky-100/[0.1]" 
     style={{
       gridTemplateColumns: "90% 10%"
     }}
     data-aos="fade-right"
     data-aos-duration="1000">
       <section className="flex flex-row items-center gap-4 h-full p2-4">
-        <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden p-[10px] flex items-center justify-center">
+        <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden p-[10px] flex items-center justify-center"
+         onClick={() => {response()}}>
           <div className="absolute inset-0 vignette-icon"/>
           <img src={data.icon} className="w-[55px] h-[55px] rounded-full opacity-70" 
             style={{objectFit: "cover"}}/>
         </div>
-        <div className="flex flex-col py-4">
+        <div className="flex flex-col py-4 max-w-[75%]">
           <span className="text-lg">{data.date}</span>
           {data.title}
           <span className="text-lg italic">{data.subtitle}</span>
         </div>
       </section>
-      <section className="flex w-full h-full items-center justify-end
-      text-sky-50/[0.75] pr-8 hover:text-sky-200/[0.3] transition-colors duration-300">
+      <section className={`flex w-full h-full items-center justify-end
+      text-sky-50/[0.75] hover:text-sky-200/[0.3] transition-colors duration-300
+      ${responsive(["pr-2", "pr-3", "pr-4", "pr-6", "pr-7", "pr-8"])}`}>
         <button onClick={() => {response()}} className="w-min h-min">
           <FaInfoCircle/>
         </button>
@@ -51,6 +53,32 @@ const ProjectListing = ({data, response}:{data:Project, response:Function}) => {
 }
 
 export default function Index() {
+  const {width, height} = useWindowSize()
+  const [screenType, setScreenType] = useState<number>(0)
+  
+  useEffect(() => {
+    if(width){
+      if (width < 640 && screenType !== 0) {
+        setScreenType(0);
+      } else if (width >= 640 && width < 768 && screenType !== 1) {
+        setScreenType(1);
+      } else if (width >= 768 && width < 1024 && screenType !== 2) {
+        setScreenType(2);
+      } else if (width >= 1024 && width < 1280 && screenType !== 3) {
+        setScreenType(3);
+      } else if (width >= 1280 && width < 1536 && screenType !== 4) {
+        setScreenType(4);
+      } else if (width >= 1536 && screenType !== 5) {
+        setScreenType(5);
+      }
+    }
+    else{
+      console.log(width)
+    }
+  }, [width]);
+
+  const responsive = (arr:any[]) =>  arr[screenType]
+
   const ptitle = useParallax<any>({
     scale: [1.5, 1.2],
     translateY: ["-200px", "-50px"]
@@ -86,7 +114,7 @@ export default function Index() {
   }).ref
 
   const p_projects = useParallax<any>({
-    translateY: ["300px", "-150px"],
+    translateY: ["200px", "-100px"],
   }).ref
 
   const p_contacts= useParallax<any>({
@@ -123,12 +151,13 @@ export default function Index() {
       <div ref={pblack_cover} className="fixed inset-0 w-screen h-screen z-[50] pointer-events-none"
       style={{backgroundColor: "#00000050"}}/>
 
-      <ProjectModal openData={openData} setOpenData={setOpenData} modalRef={modalRef}/>
+      <ProjectModal openData={openData} setOpenData={setOpenData} modalRef={modalRef} screenType={screenType}/>
 
       <main className="relative z-[1] pb-[10rem] flex flex-col text-sky-50">
         <div className="relative h-20 start">
-          <div className="absolute top-0 left-0 flex flex-row gap-8 p-12 w-full justify-end
-          text-4xl">
+          <div className={`absolute top-0 left-0 flex flex-row w-full justify-end
+          ${responsive(["text-2xl gap-4 p-8", "text-2xl gap-4 p-8", "text-3xl gap-6 p-10", 
+          "text-3xl gap-6 p-10", "text-4xl gap-8 p-12", "text-4xl gap-8 p-12"])}`}>
               <Link className="hover:text-sky-200/[0.5] transition-all duration-150 z-[500]"
               href="https://github.com/johnroo2">
               <FaGithub/>
@@ -145,14 +174,22 @@ export default function Index() {
               href="https://www.instagram.com/john_roo2/">
               <FaInstagram/>
             </Link>
+            <Link className="hover:text-sky-200/[0.5] transition-all duration-150"
+              href="https://www.youtube.com/channel/UCimJMDlPOc6vDoZlAJKSyXg">
+              <FaYoutube/>
+            </Link>
           </div>
         </div>
         <div className="relative z-[20] h-[500px]">
-          <div className="absolute left-0 mt-[300px] z-[100] flex flex-col items-start gap-4 
-          origin-left pl-8" 
+          <div className={`absolute left-0 mt-[300px] z-[100] flex flex-col items-start 
+          origin-left
+          ${responsive(["pl-4 gap-0", "pl-4 gap-0", "pl-6 gap-2", 
+          "pl-6 gap-2", "pl-8 gap-4", "pl-8 gap-4"])}`} 
           ref={ptitle}>
-            <h1 className="text-7xl font-semibold font-work"> Hi, I&apos;m John Liu 👋</h1>
-            <h2 className="text-4xl font-extralight flex flex-row gap-[0.25em] font-work">
+            <h1 className={`${responsive(["text-4xl", "text-4xl", "text-4xl", "text-5xl", "text-5xl", "text-6xl"])} 
+            font-semibold font-work max-w-[60vw]`}> Hi, I&apos;m John Liu 👋</h1>
+            <h2 className="font-extralight font-work
+             max-w-[60vw]">
               <TypeAnimation
               sequence={[
                 "I'm a full stack developer.", 3000,
@@ -163,13 +200,15 @@ export default function Index() {
               ]}
               wrapper="span"
               speed={50}
-              style={{ fontSize: "2.25rem", display: "inline-block"}}
+              style={{ fontSize: responsive(["1.4rem", "1.4rem", 
+              "1.4rem", "1.8rem", "2.25rem", "2.7rem"]), display: "inline-block"}}
               repeat={Infinity}
               />
             </h2>
           </div>
-          <div className="absolute top-0 left-0 w-full mt-[520px]
-          text-4xl pulse z-[100]" style={{fontWeight: 250}}>
+          <div className={`absolute top-0 left-0 w-full mt-[520px]
+          pulse z-[100]
+          ${responsive(["text-2xl", "text-2xl", "text-2xl", "text-3xl", "text-3xl", "text-4xl"])}`} style={{fontWeight: 250}}>
             <div ref={pscroll} className="flex flex-col items-center font-work">
               Scroll down
               <span className="scale-[0.95] opacity-80"><IoIosArrowDown/></span>
@@ -180,40 +219,74 @@ export default function Index() {
         <div className="h-[20rem] intermediate w-[500vw]"/>
       </main>
       <div className="relative w-full flex flex-col items-center z-[100] gap-12 mb-[15rem]" ref={p_about}>
-        <ParaTitle title="About Me"/>
-        <div className="flex flex-row justify-between gap-16 items-center">
-          <img src="/john-lazhall.jpeg" alt="john" className="h-[300px] rounded-md"/>
-          <span className="text-sky-50 text-3xl font-thin max-w-[50vw] leading-[2.5rem]">
-          Hi, I&apos;m Ryan Zhu! I&apos;m an avid UW GEESE WARRIOR with a keen interest in computer science. 
-          I enjoy building websites and applications, and love learning new things!
-          I also have a hobby in composing and music; I have experimented with many different styles of music, 
-          ranging from late-romantic orchestral to modern film/VGM soundtracks!
+        <div className={`flex flex-col items-center
+        ${responsive(["scale-[0.7]", "scale-[0.825]", "scale-[0.9] mb-1",
+        "scale-[0.975] mb-5", "scale-[1.00] mb-5", "scale-[1.05] mb-5"])}`}>
+          <ParaTitle title="About Me"/>
+        </div>
+        <div className={`${responsive([
+          "flex flex-col gap-8 items-center text-center max-w-[90vw] mt-6",
+          "flex flex-col gap-8 items-center text-center max-w-[85vw] mt-4",
+          "flex flex-col gap-8 items-center text-center max-w-[80vw] mt-4",
+          "flex flex-row justify-between gap-16 items-center max-w-[80vw]",
+          "flex flex-row justify-between gap-16 items-center max-w-[80vw]",
+          "flex flex-row justify-between gap-16 items-center max-w-[80vw]",])}`}>
+          <img src="/john-lazhall.jpeg" alt="john" className={`
+          ${responsive(["h-[180px] rounded-full", "h-[240px] rounded-full", "h-[270px] rounded-full",
+          "h-[285px] rounded-md", "h-[300px] rounded-md", "h-[310px] rounded-md"])}`}/>
+          <span className={`text-sky-50 font-thin
+          ${responsive(["text-[1.15rem] leading-[1.75rem]", "text-[1.35rem] leading-[2rem]", "text-2xl leading-[2.25rem]", 
+          "text-2xl leading-[2.5rem]", "text-3xl leading-[2.5rem]", "text-[2rem] leading-[2.5rem]"])}`}>
+          Hi, I&apos;m John Liu! I&apos;m a student at the University of Waterloo with a profound interest in 
+          computer science, web development, and machine learning. When I&apos;m not facing a screen, I enjoy reading, 
+          running, and playing the piano. I also have a YouTube channel dedicated to contest math, feel free to check it out!
           </span>
         </div>
       </div>
-      <div className="relative w-full flex flex-col items-center z-[100] gap-6" ref={p_showcase}>
-        <ParaTitle title="Showcase"/>
-        <div className="pt-10 pb-0 text-sky-50/[0.75] text-2xl font-light flex flex-row items-center gap-4">
+      <div className={`relative w-full flex flex-col items-center z-[100]
+      ${responsive(["gap-4", "gap-4", "gap-5",
+      "gap-5", "gap-6", "gap-6"])}`} ref={p_showcase}>
+        <div className={`flex flex-col items-center
+          ${responsive(["scale-[0.7]", "scale-[0.825]", "scale-[0.9] mb-1",
+          "scale-[0.975] mb-5", "scale-[1.00] mb-5", "scale-[1.05] mb-5"])}`}>
+          <ParaTitle title="Showcase"/>
+        </div>
+        <div className={`pt-10 text-sky-50/[0.75] font-light flex flex-row items-center
+        ${responsive(["text-lg gap-2 mb-2", "text-[1.2rem] gap-3 mb-2", "text-xl gap-3", 
+        "text-xl gap-3", "text-2xl gap-4", "text-2xl gap-4"])}`}>
           <HiCursorClick/>
           Click to learn more
         </div>
         <ResponsiveCarousel setOpenData={setOpenData} carouselRef={carouselRef}/>
       </div>
-      <div className="relative flex flex-col items-center gap-8 mb-[10rem] z-[200]" ref={p_projects}>
+      <div className="relative flex flex-col items-center mb-[10rem] z-[200] mt-4" ref={p_projects}>
         {projectData.map((item, key) => 
-        <div key={key} className="w-full flex justify-center">
-          <ProjectListing data={item} response={() => {setOpenData(item)}}/>
+        <div key={key} className={`flex justify-center
+        ${responsive(["scale-[0.7] w-[145vw]", "scale-[0.77] w-[135vw]", "scale-[0.85] w-[125vw] mb-2",
+        "scale-[0.9] w-[112vw] mb-4", "scale-[0.9] w-[112vw] mb-6", "w-[100vw] mb-8",])}`}>
+          <ProjectListing data={item} response={() => {setOpenData(item)}} screenType={screenType}/>
         </div>)}
       </div>
       <div className="relative w-full flex flex-col items-center z-[100] gap-4 mb-[20rem]" ref={p_contacts}>
-        <ParaTitle title="Contact"/>
-        <div className="mt-12 rounded-lg overflow-hidden p-8 w-[80%]"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "40% auto",
-          gap: "5rem"
-        }}>
-          <section className="text-sky-50 flex flex-col items-start justify-start gap-4 text-2xl font-light">
+        <div className={`flex flex-col items-center
+          ${responsive(["scale-[0.7]", "scale-[0.825]", "scale-[0.9] mb-1",
+          "scale-[0.975] mb-5", "scale-[1.00] mb-5", "scale-[1.05] mb-5"])}`}>
+          <ParaTitle title="Contact"/>
+        </div>
+        <div className={`rounded-lg p-8 ${responsive([
+          "w-[80%] flex flex-col gap-20", "mt-2 w-[80%] flex flex-col gap-8", 
+          "mt-4 w-[80%] flex flex-col gap-20",
+           "mt-6 w-[77.5%]", "mt-8 w-[75%]", "mt-12 w-[75%]", 
+        ])}`}
+        style={responsive(
+        [{}, {}, {}, 
+       {display: "grid",gridTemplateColumns: "48% auto",gap: "1rem"},
+        {display: "grid",gridTemplateColumns: "44% auto",gap: "2rem"},
+        {display: "grid",gridTemplateColumns: "40% auto",gap: "3rem"},])}>
+          <section className={`text-sky-50 flex flex-col items-start justify-start font-light ${responsive([
+            "gap-2 text-lg", "gap-2 text-[1.2rem]", "gap-3 text-xl", 
+            "gap-3 text-xl", "gap-4 text-[1.35rem]", "gap-4 text-2xl", 
+          ])}`}>
             <span className="mt-8">
             I&apos;d love to get in contact with you! Fill out the form and I will respond as soon as I can.
             </span>
@@ -229,7 +302,11 @@ export default function Index() {
               (647)-765-9107
             </div>
           </section>
-          <ContactForm/>
+          <div className={`self-center ${responsive(
+            ["w-[92.5vw]","w-[90vw]","w-[90vw]",
+          "w-auto","w-auto","w-auto",])}`}>
+            <ContactForm/>
+          </div>
         </div>
       </div>
       <div className="z-[100] mb-[20rem]"/>

@@ -170,7 +170,7 @@ body{
 
 .vignette {
   background:radial-gradient(circle, transparent 0%, rgba(2,0,36,0.1) 10%, rgba(9,9,121,0.20) 40%, 
-  rgba(0,20,40,0.75) 100%);
+  rgba(0,20,40,0.60) 100%);
   backdrop-filter: blur(1px);
 }
 

@@ -44,20 +44,33 @@ export default function ResponsiveCarousel({setOpenData, carouselRef, }:Props) {
     Card.displayName = "Card"
 
     return (
-        <div style={{ width: "80%", position: "relative" }}>
+        <div style={{ width: "90%", position: "relative" }}>
             <ResponsiveContainer
             carouselRef={carouselRef}
             render={(parentWidth, carouselRef) => {
                 let currentVisibleSlide = 5;
-                if (parentWidth <= 1200) currentVisibleSlide = 3;
-                if (parentWidth <= 800) currentVisibleSlide = 1;
+                let width = 800;
+                if (parentWidth <= 1280) {
+                    currentVisibleSlide = 3;
+                    width = 650;
+                }
+                if (parentWidth <= 1024) {
+                    currentVisibleSlide = 1;
+                    width = parentWidth - 40;
+                }
+                if (parentWidth <= 640){
+                    width = parentWidth - 20;
+                }
+                if (parentWidth <= 400){
+                    width = parentWidth;
+                }
                 return (
                     <>
                     <div>
                         <StackedCarousel
                             ref={carouselRef}
                             slideComponent={Card}
-                            slideWidth={parentWidth < 800 ? parentWidth - 40 : 750}
+                            slideWidth={parentWidth < 1024 ? parentWidth - 80 : 600}
                             carouselWidth={parentWidth}
                             data={showcaseData}
                             currentVisibleSlide={currentVisibleSlide}
