@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParallax } from "react-scroll-parallax";
 import { TypeAnimation } from "react-type-animation";
 import { IoIosArrowDown } from "react-icons/io";
@@ -8,7 +8,7 @@ import { FaPhone } from "react-icons/fa6";
 import { HiCursorClick } from "react-icons/hi";
 import { IoMdMail } from "react-icons/io";
 
-import { useWindowSize } from "@uidotdev/usehooks";
+import { useWindowSize, useMouse } from "@uidotdev/usehooks";
 
 import { PolyWave } from "@/components/polywave";
 import ResponsiveCarousel from "@/components/carousel";
@@ -28,15 +28,14 @@ const ProjectListing = ({data, response, screenType}:{data:Project, response:Fun
     }}
     data-aos="fade-right"
     data-aos-duration="1000">
-      <section className="flex flex-row items-center gap-4 h-full p2-4">
-        <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden p-[10px] flex items-center justify-center"
+      <section className="flex flex-row items-center gap-4 h-full p-2">
+        <div className="relative w-[55px] h-[55px] rounded-full overflow-hidden flex items-center justify-center"
          onClick={() => {response()}}>
           <div className="absolute inset-0 vignette-icon"/>
-          <img src={data.icon} className="w-[55px] h-[55px] rounded-full opacity-70" 
+          <img src={data.icon} className="w-[48px] h-[48px] rounded-full opacity-70" 
             style={{objectFit: "cover"}}/>
         </div>
-        <div className="flex flex-col py-4 max-w-[75%]">
-          <span className="text-lg">{data.date}</span>
+        <div className="flex flex-col py-2 max-w-[75%] scale-[0.95] origin-left">
           {data.title}
           <span className="text-lg italic">{data.subtitle}</span>
         </div>
@@ -52,10 +51,89 @@ const ProjectListing = ({data, response, screenType}:{data:Project, response:Fun
   )
 }
 
-export default function Index() {
+const CoverCanvas = ({screenType, openData}:any) => {
+  const pcanvas = useParallax<any>({
+    startScroll: 0,
+    endScroll: 1200,
+    opacity: [0, 1]
+  }).ref
+
+  const {x:true_x, y:true_y} = useMouse()[0]
+  const [x, setX] = useState(true_x)
+  const [y, setY] = useState(true_y)
   const {width, height} = useWindowSize()
+
+  const [vertical, setVertical] = useState(0)
+  const [mainHeight, setMainHeight] = useState<number | undefined>(undefined)
+
+  useEffect(() => {
+    if(!mainHeight){
+      setMainHeight(document.getElementById('main')?.scrollHeight)
+    }
+  }, [mainHeight])
+
+  useEffect(() => {setX(true_x)}, [true_x])
+  useEffect(() => {setY(true_y)}, [true_y])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const diff = scrollY - vertical
+      setVertical(scrollY)
+      setY((prev) => prev + diff)
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [vertical]);
+
+  useEffect(() => {
+    const canvas:HTMLCanvasElement | null = 
+    document.getElementById('covercanvas') as HTMLCanvasElement;
+
+    if(canvas){
+      canvas.width = window.innerWidth;
+      canvas.height = mainHeight ? mainHeight + window.innerHeight : 0;
+      const ctx = canvas.getContext('2d')
+      if (ctx) {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.globalCompositeOperation = 'destination-out';
+        const rad = canvas.width * 0.5
+        const gradient = ctx.createRadialGradient(
+          x, y, 0, 
+          x, y, rad);
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.55)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, rad, 0, Math.PI * 2);
+        ctx.fill();
+    
+    ctx.globalCompositeOperation = 'source-over';
+      } else {
+        console.error('context error');
+      }
+    }
+  }, [x, y, width, height, vertical, mainHeight])
+
+  return (
+    <div className=""
+    style={{opacity: (screenType >= 3) ? 1 : 0}}>
+      <canvas id="covercanvas" ref={pcanvas}/>
+    </div>
+  )
+}
+
+export default function Index() {
+  const {width} = useWindowSize()
   const [screenType, setScreenType] = useState<number>(0)
   
+  // useEffect(() => {
+  //   document.body.style.cursor = 'none';
+  // }, [])
+
   useEffect(() => {
     if(width){
       if (width < 640 && screenType !== 0) {
@@ -73,14 +151,14 @@ export default function Index() {
       }
     }
     else{
-      console.log(width)
+      //console.log(width)
     }
   }, [width]);
 
   const responsive = (arr:any[]) =>  arr[screenType]
 
   const ptitle = useParallax<any>({
-    scale: [1.5, 1.2],
+    scale: [1.5, 1.0],
     translateY: ["-200px", "-50px"]
   }).ref
 
@@ -104,13 +182,12 @@ export default function Index() {
   const p_about = useParallax<any>({
     opacity: [0, 1, "easeOut"],
     translateY: ["400px", "0px"],
-    scale: [1.3, 0.9, "easeOut"]
+    scale: [1.15, 0.8, "easeOut"]
   }).ref
 
   const p_showcase = useParallax<any>({
     opacity: [0, 1, "easeOut"],
-    translateY: ["400px", "0px"],
-    scale: [1.1, 1]
+    translateY: ["300px", "0px"],
   }).ref
 
   const p_projects = useParallax<any>({
@@ -120,7 +197,7 @@ export default function Index() {
   const p_contacts= useParallax<any>({
     opacity: [0, 1, "easeOut"],
     translateY: ["400px", "0px"],
-    scale: [1.3, 0.9, "easeOut"]
+    scale: [1.15, 0.8, "easeOut"]
   }).ref
 
   const [openData, setOpenData] = useState<Project | null>(null)
@@ -142,7 +219,8 @@ export default function Index() {
   }, [openData]);
 
   return (
-    <div className="relative background z-[0] max-w-[100vw] overflow-hidden">
+    <div className="relative background z-[0] max-w-[100vw] overflow-hidden" id="main">
+      <CoverCanvas screenType={screenType} openData={openData}/>
       <div className="absolute top-0 left-0 z-[1] flex flex-row items-start justify-start h-full
       overflow-hidden">
         <div ref={pbg} className="relative crosses-img-first h-full"/>
@@ -194,8 +272,8 @@ export default function Index() {
               sequence={[
                 "I'm a full stack developer.", 3000,
                 "I'm an aspiring data scientist.", 3000,
-                "I'm top 1000 Fizz mains NA.", 3000,
-                "I'm currently employed in California, USA.", 3000,
+                //"I'm top 1000 Fizz mains NA.", 3000,
+                "I'm looking for 2024 summer co-op opportunities.", 3000,
                 "I'm excited to be working with you!", 3000,
               ]}
               wrapper="span"
@@ -234,9 +312,10 @@ export default function Index() {
           <img src="/john-lazhall.jpeg" alt="john" className={`
           ${responsive(["h-[180px] rounded-full", "h-[240px] rounded-full", "h-[270px] rounded-full",
           "h-[285px] rounded-md", "h-[300px] rounded-md", "h-[310px] rounded-md"])}`}/>
-          <span className={`text-sky-50 font-thin
+          <span className={`text-sky-50 
           ${responsive(["text-[1.15rem] leading-[1.75rem]", "text-[1.35rem] leading-[2rem]", "text-2xl leading-[2.25rem]", 
-          "text-2xl leading-[2.5rem]", "text-3xl leading-[2.5rem]", "text-[2rem] leading-[2.5rem]"])}`}>
+          "text-2xl leading-[2.5rem]", "text-3xl leading-[2.5rem]", "text-[2rem] leading-[2.5rem]"])}`}
+          style={{fontWeight:200}}>
           Hi, I&apos;m John Liu! I&apos;m a student at the University of Waterloo with a profound interest in 
           computer science, web development, and machine learning. When I&apos;m not facing a screen, I enjoy reading, 
           running, and playing the piano. I also have a YouTube channel dedicated to contest math, feel free to check it out!

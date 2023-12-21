@@ -76,11 +76,13 @@ export default function ProjectModal({openData, setOpenData, modalRef, screenTyp
                   style={{objectFit: "cover"}}/>
                 </div>
             </section>
-            <section className="absolute right-0 top-0 h-full w-[70%] z-[1000] p-8 
-            rounded-r-lg overflow-hidden" 
+            <section className={`absolute right-0 top-0 h-full w-[70%] z-[1000] 
+            rounded-r-lg overflow-hidden 
+            ${responsive(["p-3","p-3","p-4",
+            "p-4","p-6","p-8"])}`} 
             style={{backgroundColor: openData ? openData.right : "transparent"}}>
                 <div className="absolute inset-0 w-full h-full angled-gradient"/>
-                <div className="flex flex-col">
+                <div className="flex flex-col scale-[0.85] origin-top-left w-[115%]">
                   <div className="flex flex-row gap-4 h-full items-center">
                     <img src={openData?.icon} className="w-[70px] h-[70px] rounded-full" 
                         style={{objectFit: "cover"}}/>
@@ -95,7 +97,7 @@ export default function ProjectModal({openData, setOpenData, modalRef, screenTyp
                     <div key={key}><Tag name={item} screenType={screenType}/></div>)}
                   </div>
                   <div className={`w-[90%] mt-4 transition-opacity delay-300 duration-300
-                  overflow-y-scroll ${
+                   ${
                     responsive(["","","",
                     "text-[0.85em]","text-[0.9em]","text-[0.95em]"])}`}
                   style={{

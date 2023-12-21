@@ -21,7 +21,7 @@ export type Project = {
   export const projectData:Project[] = [
     {cover:"/slimescholars-cover.png", icon:"/slimescholars-icon.png", banner:"/slimescholars-banner.png",
     title: "Slime Scholars", subtitle: "Gameifying Education",
-    left: "#666666", right: "#101010", date: "Sep 2023", showcase: true,
+    left: "#444444", right: "#101010", date: "Sep 2023", showcase: true,
     tags: ["JavaScript", "NextJS", "NodeJS", "MongoDB", "TailwindCSS"],
     body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -39,8 +39,8 @@ export type Project = {
     </div>},
 
     {cover:"/alct-cover.jpeg", icon:"/alct-icon.png", banner:"/alct-banner.png",
-    title: "ALCannTrace E-Commerce", subtitle: "Shop Cannabis Online",
-    left: "#666666", right: "#101010", date: "Aug 2023", showcase: true,
+    title: "ALCannTrace", subtitle: "Agricultural E-Commerce Solutions",
+    left: "#444444", right: "#101010", date: "Aug 2023", showcase: true,
     tags: ["TypeScript", "Material UI", "TailwindCSS"],
     body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -58,7 +58,7 @@ export type Project = {
 
 {cover:"/darkestdungeons-cover.png", icon:"/darkestdungeons-icon.png", banner:"/darkestdungeons-banner.png",
 title: "Darkest Dungeons", subtitle: "Roguelike Bullet Hell",
-left: "#666666", right: "#101010", date: "Dec 2022", showcase: true,
+left: "#444444", right: "#101010", date: "Dec 2022", showcase: true,
 tags: ["Java"],
 body: 
 <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -74,8 +74,8 @@ body:
 </div>},
 
 {cover:"/jobber-cover.png", icon:"/jobber-icon.png", banner:"jobber-banner.png",
-title: "Jobber", subtitle: "Problems & Services",
-left: "#666666", right: "#101010", date: "Sep 2023", showcase: true,
+title: "Jobber", subtitle: "Postings & Solutions",
+left: "#444444", right: "#101010", date: "Sep 2023", showcase: true,
 tags: ["TypeScript", "Flask", "PostgreSQL", "Material UI", "TailwindCSS", "Cohere.AI"],
 body: 
 <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -85,8 +85,8 @@ service much more streamlined.
 </div>},
 
 {cover:"/normalchess-cover.jpeg", icon:"/normalchess-icon.jpeg", banner:"/normalchess-banner.png",
-title: "Normal Chess", subtitle: "Chess AI",
-left: "#666666", right: "#101010", date: "Nov 2023", showcase: true,
+title: "Normal Chess", subtitle: "Chess, AI, and Frontend",
+left: "#444444", right: "#101010", date: "Nov 2023", showcase: true,
 tags: ["Python", "ViteJS", "TypeScript", "Flask", "TensorFlow", "TailwindCSS"],
 body: 
 <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -102,7 +102,7 @@ body:
   
     {cover:"", icon:"/flourish-icon.png", banner:"/flourish-banner.png",
     title: "Flourish", subtitle: "Community-Oriented Time Management",
-    left: "#666666", right: "#101010", date: "Mar 2023", showcase: false,
+    left: "#444444", right: "#101010", date: "Mar 2023", showcase: false,
     tags: ["JavaScript", "NodeJS", "Firebase", "TailwindCSS"],
     body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -120,8 +120,8 @@ body:
     </div>},
   
     {cover:"", icon:"/flounder-icon.png", banner:"/flounder-banner.png",
-    title: "Flounder", subtitle: "Flounder About With Math",
-    left: "#666666", right: "#101010", date: "Jul 2023", showcase: false,
+    title: "Flounder", subtitle: "Flounder Over Math Problems",
+    left: "#444444", right: "#101010", date: "Jul 2023", showcase: false,
      tags: ["TypeScript", "NextJS", "Django", "SQLite", "Ant Design", "TailwindCSS"],
      body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -136,7 +136,7 @@ body:
   
      {cover:"", icon:"/deeplearningrace-icon.png", banner:"/deeplearningrace-banner.png",
      title: "Neuroevolution: 2D Car Sensors", subtitle: "Visualize Machine Learning",
-     left: "#666666", right: "#101010", date: "Jun 2021", showcase: false,
+     left: "#444444", right: "#101010", date: "Jun 2022", showcase: false,
      tags: ["Python", "TensorFlow"],
      body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -147,25 +147,10 @@ body:
       Google Development Group Edmonton&apos;s machine learning bootcamp.
       </span>
     </div>},
-
-    {cover:"", icon:"/neatflappybird-icon.jpeg", banner:"/neatflappybird-banner.png",
-    title: "Neuroevolution: Flappy Bird", subtitle: "Visualize Machine Learning",
-    left: "#666666", right: "#101010", date: "Apr 2021", showcase: false,
-    tags: ["Python", "Neat-Python"],
-    body: 
-    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
-      <span>
-      Using Neat-Python&apos;s neuroevolution library, this application trains models to play Flappy 
-      Bird. The graphics of the game used to train the models are made using PyGame. 
-      </span>
-      <span>
-      No real birds were harmed in this process of making this.
-      </span>
-    </div>},
   
      {cover:"", icon:"/abs-icon.png", banner:"/abs-banner.png",
      title: "Agripowers Breeding Systems", subtitle: "Crop Management System",
-     left: "#666666", right: "#101010", date: "Apr 2023", showcase: false,
+     left: "#444444", right: "#101010", date: "Apr 2023", showcase: false,
      tags: ["TypeScript", "NextJS", "Ant Design", "TailwindCSS", "Java Spring", "SQLite"],
      body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -184,8 +169,8 @@ body:
     </div>},
 
     {cover:"", icon:"/alcportal-icon.png", banner:"/alcportal-banner.png",
-    title: "A&L Canada Client Portal", subtitle: "Customer Management",
-    left: "#666666", right: "#101010", date: "Jun 2023", showcase: false,
+    title: "A&L Canada Client Portal", subtitle: "SSO Portal, Customer Management",
+    left: "#444444", right: "#101010", date: "Jun 2023", showcase: false,
     tags: ["TypeScript", "NextJS", "Ant Design", "TailwindCSS"],
     body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
@@ -204,38 +189,14 @@ body:
     </div>},
 
     {cover:"", icon:"jowilder-icon.png", banner:"jowilder-banner.png",
-    title: "Predict Student Performance from Game Play", subtitle: "Featured Code Competition",
-    left: "#666666", right: "#101010", date: "Feb 2023", showcase: false,
+    title: "Predict Student Performance from Game Play", subtitle: "Kaggle Code Competition",
+    left: "#444444", right: "#101010", date: "Feb 2023", showcase: false,
     tags: ["Python", "Pandas/Numpy", "TensorFlow"],
     body: 
     <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
     My submission involves a single Jupyter notebook submitted for The Learning Agency Lab&apos;s Kaggle competition, 
     which involves improving knowledge-tracing methods for game-based learning. My notebook uses Tensorflow to train 
     models and the Polars library over Pandas to save memory.
-    </div>},
-
-    {cover:"", icon:"gsdc-icon.png", banner:"gsdc-banner.png",
-    title: "Google Smartphone Decimeter Challenge", subtitle: "Community Prediction Competition",
-    left: "#666666", right: "#101010", date: "Dec 2023", showcase: false,
-    tags: ["Python", "Pandas/Numpy", "TensorFlow"],
-    body: 
-    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
-    <span>Our team&apos;s submission involves a single Jupyter notebook submitted for 
-    Google&apos;s 2023 Smartphone Decimeter Challenge which involves produce better positions, bridging the connection between 
-    the geo-spatial information of finer human behavior and mobile internet with improved granularity.
-    </span>
-    <span>
-      The notebook will not be available on GitHub until the competition is finished. 
-    </span>
-    </div>},
-
-    {cover:"", icon:"thiswebsite-icon.jpeg", banner:"thiswebsite-banner.png",
-    title: "Personal Webiste", subtitle: "This Page",
-    left: "#666666", right: "#101010", date: "Dec 2023", showcase: false,
-    tags: ["TypeScript", "NextJS", "TailwindCSS"],
-    body: 
-    <div className="flex flex-col text-sky-50/[0.95] relative z-[1000] gap-4">
-      <span>This website was made using AOS and React-Parallax, along with the other tags listed above. </span> 
     </div>},
   ]
   
