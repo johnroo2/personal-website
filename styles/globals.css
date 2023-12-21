@@ -189,7 +189,7 @@ a:hover{
 
 canvas {
   position: absolute ;
-  z-index: 9999;
+  z-index: 500;
   top: 0;
   left: 0;
   pointer-events: none;

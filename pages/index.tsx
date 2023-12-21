@@ -3,7 +3,7 @@ import { useParallax } from "react-scroll-parallax";
 import { TypeAnimation } from "react-type-animation";
 import { IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaDiscord, FaInstagram, FaInfoCircle, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaDiscord, FaInstagram, FaInfoCircle, FaYoutube, FaEye } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { HiCursorClick } from "react-icons/hi";
 import { IoMdMail } from "react-icons/io";
@@ -97,14 +97,14 @@ const CoverCanvas = ({screenType, openData}:any) => {
       canvas.height = mainHeight ? mainHeight + window.innerHeight : 0;
       const ctx = canvas.getContext('2d')
       if (ctx) {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalCompositeOperation = 'destination-out';
         const rad = canvas.width * 0.5
         const gradient = ctx.createRadialGradient(
           x, y, 0, 
           x, y, rad);
-        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.55)');
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.45)');
         gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -158,7 +158,7 @@ export default function Index() {
   const responsive = (arr:any[]) =>  arr[screenType]
 
   const ptitle = useParallax<any>({
-    scale: [1.5, 1.0],
+    scale: [1.35, 0.95],
     translateY: ["-200px", "-50px"]
   }).ref
 
@@ -204,6 +204,8 @@ export default function Index() {
 
   const modalRef = useRef<any>()
   const carouselRef = useRef<any>()
+
+  const [seeMore, setSeeMore] = useState<boolean>(false)
 
   useEffect(() => {
     const handleOutsideClick = (event:any) => {
@@ -339,7 +341,23 @@ export default function Index() {
         <ResponsiveCarousel setOpenData={setOpenData} carouselRef={carouselRef}/>
       </div>
       <div className="relative flex flex-col items-center mb-[10rem] z-[200] mt-4" ref={p_projects}>
-        {projectData.map((item, key) => 
+        {!seeMore ?
+         <div className={`flex justify-center mt-[75px]
+         ${responsive(["scale-[0.7] w-[145vw]", "scale-[0.77] w-[135vw]", "scale-[0.85] w-[125vw] mb-2",
+         "scale-[0.9] w-[112vw] mb-4", "scale-[0.9] w-[112vw] mb-6", "w-[100vw] mb-8",])}`}>
+          <div className="text-sky-50 text-2xl w-[70%] font-work grid bg-gradient-to-r
+          from-sky-50/[0.05] to-sky-50/[0.10] px-4 rounded-md shadow-xl shadow-sky-100/[0.1]
+          hover:brightness-[1.4] transition-all duration-300" onClick={() => {
+            setSeeMore(true)
+          }}>
+            <section className="relative flex flex-row items-center gap-4 h-full p-3
+            justify-center">
+              <FaEye/>
+              View More Projects
+            </section>
+          </div>
+        </div>:
+        projectData.map((item, key) => 
         <div key={key} className={`flex justify-center
         ${responsive(["scale-[0.7] w-[145vw]", "scale-[0.77] w-[135vw]", "scale-[0.85] w-[125vw] mb-2",
         "scale-[0.9] w-[112vw] mb-4", "scale-[0.9] w-[112vw] mb-6", "w-[100vw] mb-8",])}`}>
