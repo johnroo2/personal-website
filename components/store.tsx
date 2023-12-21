@@ -20,6 +20,7 @@ export type Project = {
   
   export const projectData:Project[] = [
     {cover:"/slimescholars-cover.png", icon:"/slimescholars-icon.png", banner:"/slimescholars-banner.png",
+    github:"https://github.com/SlimeScholars/slime-scholars", vercel: "https://slimescholars.com",
     title: "Slime Scholars", subtitle: "Gameifying Education",
     left: "#444444", right: "#101010", date: "Sep 2023", showcase: true,
     tags: ["JavaScript", "NextJS", "NodeJS", "MongoDB", "TailwindCSS"],
@@ -39,6 +40,7 @@ export type Project = {
     </div>},
 
     {cover:"/alct-cover.jpeg", icon:"/alct-icon.png", banner:"/alct-banner.png",
+    github:"https://github.com/johnroo2/ALCTSHOP", vercel: "https://www.alcanntrace.com/",
     title: "ALCannTrace", subtitle: "Agricultural E-Commerce Solutions",
     left: "#444444", right: "#101010", date: "Aug 2023", showcase: true,
     tags: ["TypeScript", "Material UI", "TailwindCSS"],
@@ -57,6 +59,7 @@ export type Project = {
     </div>},
 
 {cover:"/darkestdungeons-cover.png", icon:"/darkestdungeons-icon.png", banner:"/darkestdungeons-banner.png",
+github:"https://github.com/johnroo2/darkest-dungeons",
 title: "Darkest Dungeons", subtitle: "Roguelike Bullet Hell",
 left: "#444444", right: "#101010", date: "Dec 2022", showcase: true,
 tags: ["Java"],
@@ -74,6 +77,7 @@ body:
 </div>},
 
 {cover:"/jobber-cover.png", icon:"/jobber-icon.png", banner:"jobber-banner.png",
+github:"https://github.com/johnroo2/Jobber", vercel: "https://hackthenorth2023.devpost.com/submissions/search?utf8=%E2%9C%93&prize_filter%5Bprizes%5D%5B%5D=68785",
 title: "Jobber", subtitle: "Postings & Solutions",
 left: "#444444", right: "#101010", date: "Sep 2023", showcase: true,
 tags: ["TypeScript", "Flask", "PostgreSQL", "Material UI", "TailwindCSS", "Cohere.AI"],
@@ -85,6 +89,7 @@ service much more streamlined.
 </div>},
 
 {cover:"/normalchess-cover.jpeg", icon:"/normalchess-icon.jpeg", banner:"/normalchess-banner.png",
+github:"https://github.com/johnroo2/normal-chess-api", vercel: "https://normal-chess-johnroo2.vercel.app/play",
 title: "Normal Chess", subtitle: "Chess, AI, and Frontend",
 left: "#444444", right: "#101010", date: "Nov 2023", showcase: true,
 tags: ["Python", "ViteJS", "TypeScript", "Flask", "TensorFlow", "TailwindCSS"],
@@ -101,6 +106,7 @@ body:
 </div>},
   
     {cover:"", icon:"/flourish-icon.png", banner:"/flourish-banner.png",
+    github:"https://github.com/johnroo2/flourish-app",
     title: "Flourish", subtitle: "Community-Oriented Time Management",
     left: "#444444", right: "#101010", date: "Mar 2023", showcase: false,
     tags: ["JavaScript", "NodeJS", "Firebase", "TailwindCSS"],
@@ -120,6 +126,7 @@ body:
     </div>},
   
     {cover:"", icon:"/flounder-icon.png", banner:"/flounder-banner.png",
+    github:"https://github.com/johnroo2/flounder", vercel: "https://flounder-alpha.vercel.app/",
     title: "Flounder", subtitle: "Flounder Over Math Problems",
     left: "#444444", right: "#101010", date: "Jul 2023", showcase: false,
      tags: ["TypeScript", "NextJS", "Django", "SQLite", "Ant Design", "TailwindCSS"],
@@ -135,6 +142,7 @@ body:
     </div>},
   
      {cover:"", icon:"/deeplearningrace-icon.png", banner:"/deeplearningrace-banner.png",
+     github:"https://github.com/johnroo2/deeplearning-racing", 
      title: "Neuroevolution: 2D Car Sensors", subtitle: "Visualize Machine Learning",
      left: "#444444", right: "#101010", date: "Jun 2022", showcase: false,
      tags: ["Python", "TensorFlow"],
@@ -149,6 +157,7 @@ body:
     </div>},
   
      {cover:"", icon:"/abs-icon.png", banner:"/abs-banner.png",
+     github:"https://github.com/johnroo2/breeding-system-ui", 
      title: "Agripowers Breeding Systems", subtitle: "Crop Management System",
      left: "#444444", right: "#101010", date: "Apr 2023", showcase: false,
      tags: ["TypeScript", "NextJS", "Ant Design", "TailwindCSS", "Java Spring", "SQLite"],
@@ -169,6 +178,7 @@ body:
     </div>},
 
     {cover:"", icon:"/alcportal-icon.png", banner:"/alcportal-banner.png",
+    github:"https://github.com/johnroo2/alcanada-online-payment", 
     title: "A&L Canada Client Portal", subtitle: "SSO Portal, Customer Management",
     left: "#444444", right: "#101010", date: "Jun 2023", showcase: false,
     tags: ["TypeScript", "NextJS", "Ant Design", "TailwindCSS"],
@@ -189,6 +199,7 @@ body:
     </div>},
 
     {cover:"", icon:"jowilder-icon.png", banner:"jowilder-banner.png",
+    github: "https://github.com/johnroo2/jowilder-studentperformance",
     title: "Predict Student Performance from Game Play", subtitle: "Kaggle Code Competition",
     left: "#444444", right: "#101010", date: "Feb 2023", showcase: false,
     tags: ["Python", "Pandas/Numpy", "TensorFlow"],

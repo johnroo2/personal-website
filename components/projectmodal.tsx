@@ -1,5 +1,8 @@
 import { Project } from "@/components/store";
-
+import { FaGithub } from "react-icons/fa";
+import { TbExternalLink } from "react-icons/tb";
+import { IoMdClose } from "react-icons/io";
+import Link from "next/link";
 
 interface Props{
     openData:Project | null,
@@ -78,10 +81,25 @@ export default function ProjectModal({openData, setOpenData, modalRef, screenTyp
             </section>
             <section className={`absolute right-0 top-0 h-full w-[70%] z-[1000] 
             rounded-r-lg overflow-hidden 
-            ${responsive(["p-3","p-3","p-4",
+            ${responsive(["", "", "",
             "p-4","p-6","p-8"])}`} 
             style={{backgroundColor: openData ? openData.right : "transparent"}}>
-                <div className="absolute inset-0 w-full h-full angled-gradient"/>
+                <div className="absolute inset-0 w-full h-full angled-gradient pointer-events-none"/>
+                <div className={`absolute top-0 right-0 text-sky-50 flex flex-row z-[2000]
+                ${responsive(["", "", "",
+                "p-4 text-2xl gap-3","p-6 text-2xl gap-4","p-8 text-3xl gap-5"])}`}>
+                  {openData?.vercel && 
+                  <Link target="_blank"  href={openData.vercel}>
+                    <TbExternalLink/>
+                  </Link>}
+                  {openData?.github && 
+                  <Link target="_blank"  href={openData.github}>
+                    <FaGithub/>
+                  </Link>}
+                  <button onClick={() => {setOpenData(null)}}>
+                    <IoMdClose/>
+                  </button>
+                </div>
                 <div className="flex flex-col scale-[0.85] origin-top-left w-[115%]">
                   <div className="flex flex-row gap-4 h-full items-center">
                     <img src={openData?.icon} className="w-[70px] h-[70px] rounded-full" 
@@ -128,7 +146,7 @@ export default function ProjectModal({openData, setOpenData, modalRef, screenTyp
             rounded-b-lg overflow-hidden" 
             style={{backgroundColor: openData ? openData.right : "transparent"}}>
                 <div className="absolute inset-0 w-full h-full angled-gradient"/>
-                <div className="flex flex-col">
+                <div className="flex flex-col scale-[0.85] origin-top-left w-[115%]">
                   <div className={`flex flex-row h-full items-center
                   ${responsive(["gap-1","gap-2",
                   "gap-2","gap-4","gap-4", "gap-4"])}`}>

@@ -55,7 +55,8 @@ const CoverCanvas = ({screenType, openData}:any) => {
   const pcanvas = useParallax<any>({
     startScroll: 0,
     endScroll: 1200,
-    opacity: [0, 1]
+    opacity: [0, 1],
+    easing: "easeIn"
   }).ref
 
   const {x:true_x, y:true_y} = useMouse()[0]
@@ -238,23 +239,23 @@ export default function Index() {
           <div className={`absolute top-0 left-0 flex flex-row w-full justify-end
           ${responsive(["text-2xl gap-4 p-8", "text-2xl gap-4 p-8", "text-3xl gap-6 p-10", 
           "text-3xl gap-6 p-10", "text-4xl gap-8 p-12", "text-4xl gap-8 p-12"])}`}>
-              <Link className="hover:text-sky-200/[0.5] transition-all duration-150 z-[500]"
+              <Link target="_blank"  className="hover:text-sky-200/[0.5] transition-all duration-150 z-[500]"
               href="https://github.com/johnroo2">
               <FaGithub/>
             </Link>
-            <Link className="hover:text-sky-200/[0.5] transition-all duration-150"
+            <Link target="_blank"  className="hover:text-sky-200/[0.5] transition-all duration-150"
               href="https://www.linkedin.com/in/john-liu-590242246/">
               <FaLinkedin/>
             </Link>
-            <Link className="hover:text-sky-200/[0.5] transition-all duration-150"
+            <Link target="_blank"  className="hover:text-sky-200/[0.5] transition-all duration-150"
               href="https://discord.com/users/311661286213550091">
               <FaDiscord/>
             </Link>
-            <Link className="hover:text-sky-200/[0.5] transition-all duration-150"
+            <Link target="_blank"  className="hover:text-sky-200/[0.5] transition-all duration-150"
               href="https://www.instagram.com/john_roo2/">
               <FaInstagram/>
             </Link>
-            <Link className="hover:text-sky-200/[0.5] transition-all duration-150"
+            <Link target="_blank"  className="hover:text-sky-200/[0.5] transition-all duration-150"
               href="https://www.youtube.com/channel/UCimJMDlPOc6vDoZlAJKSyXg">
               <FaYoutube/>
             </Link>
