@@ -97,14 +97,14 @@ const CoverCanvas = ({screenType, openData}:any) => {
       canvas.height = mainHeight ? mainHeight + window.innerHeight : 0;
       const ctx = canvas.getContext('2d')
       if (ctx) {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalCompositeOperation = 'destination-out';
-        const rad = canvas.width * 0.5
+        const rad = canvas.width * 0.75
         const gradient = ctx.createRadialGradient(
           x, y, 0, 
           x, y, rad);
-        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.45)');
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.85)');
         gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
