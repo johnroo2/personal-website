@@ -347,7 +347,7 @@ export default function Index() {
          "scale-[0.9] w-[112vw] mb-4", "scale-[0.9] w-[112vw] mb-6", "w-[100vw] mb-8",])}`}>
           <div className="text-sky-50 text-2xl w-[70%] font-work grid bg-gradient-to-r
           from-sky-50/[0.05] to-sky-50/[0.10] px-4 rounded-md shadow-xl shadow-sky-100/[0.1]
-          hover:brightness-[1.4] transition-all duration-300" onClick={() => {
+          hover:scale-[1.05] transition-all duration-300" onClick={() => {
             setSeeMore(true)
           }}>
             <section className="relative flex flex-row items-center gap-4 h-full p-3
