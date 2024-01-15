@@ -101,7 +101,7 @@ const CoverCanvas = ({screenType, openData}:any) => {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalCompositeOperation = 'destination-out';
-        const rad = canvas.width * 0.75
+        const rad = canvas.width * 0.85
         const gradient = ctx.createRadialGradient(
           x, y, 0, 
           x, y, rad);
@@ -312,7 +312,7 @@ export default function Index() {
           "flex flex-row justify-between gap-16 items-center max-w-[80vw]",
           "flex flex-row justify-between gap-16 items-center max-w-[80vw]",
           "flex flex-row justify-between gap-16 items-center max-w-[80vw]",])}`}>
-          <img src="/john-lazhall.jpeg" alt="john" className={`
+          <img src="/john-bridge.png" alt="john" className={`
           ${responsive(["h-[180px] rounded-full", "h-[240px] rounded-full", "h-[270px] rounded-full",
           "h-[285px] rounded-md", "h-[300px] rounded-md", "h-[310px] rounded-md"])}`}/>
           <span className={`text-sky-50 
