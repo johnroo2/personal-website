@@ -146,11 +146,6 @@ export default function ProjectModal({openData, setOpenData, modalRef, screenTyp
             rounded-b-lg overflow-hidden" 
             style={{backgroundColor: openData ? openData.right : "transparent"}}>
                 <div className="absolute inset-0 w-full h-full angled-gradient"/>
-                <div className={`absolute top-0 right-0 text-sky-50 z-[2000]`}>
-                  <button onClick={() => {setOpenData(null)}}>
-                    <IoMdClose/>
-                  </button>
-                </div>
                 <div className="flex flex-col scale-[0.85] origin-top-left w-[115%]">
                   <div className={`flex flex-row h-full items-center
                   ${responsive(["gap-1","gap-2",
