@@ -69,7 +69,7 @@ const CoverCanvas = ({screenType, openData}:any) => {
 
   useEffect(() => {
     if(!mainHeight){
-      setMainHeight(document.getElementById('main')?.scrollHeight)
+      setMainHeight((document.getElementById('main')?.scrollHeight || 0) + 5000)
     }
   }, [mainHeight])
 
@@ -93,30 +93,30 @@ const CoverCanvas = ({screenType, openData}:any) => {
     const canvas:HTMLCanvasElement | null = 
     document.getElementById('covercanvas') as HTMLCanvasElement;
 
-    if(canvas){
-      canvas.width = window.innerWidth;
-      canvas.height = mainHeight ? mainHeight + window.innerHeight : 0;
-      const ctx = canvas.getContext('2d')
-      if (ctx) {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.globalCompositeOperation = 'destination-out';
-        const rad = canvas.width * 0.85
-        const gradient = ctx.createRadialGradient(
-          x, y, 0, 
-          x, y, rad);
-        gradient.addColorStop(0, 'rgba(0, 0, 0, 0.85)');
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(x, y, rad, 0, Math.PI * 2);
-        ctx.fill();
+    // if(canvas){
+    //   canvas.width = window.innerWidth;
+    //   canvas.height = mainHeight ? mainHeight + window.innerHeight : 0;
+    //   const ctx = canvas.getContext('2d')
+    //   if (ctx) {
+    //     ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
+    //     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //     ctx.globalCompositeOperation = 'destination-out';
+    //     const rad = canvas.width * 0.85
+    //     const gradient = ctx.createRadialGradient(
+    //       x, y, 0, 
+    //       x, y, rad);
+    //     gradient.addColorStop(0, 'rgba(0, 0, 0, 0.85)');
+    //     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    //     ctx.fillStyle = gradient;
+    //     ctx.beginPath();
+    //     ctx.arc(x, y, rad, 0, Math.PI * 2);
+    //     ctx.fill();
     
-    ctx.globalCompositeOperation = 'source-over';
-      } else {
-        console.error('context error');
-      }
-    }
+    // ctx.globalCompositeOperation = 'source-over';
+    //   } else {
+    //     console.error('context error');
+    //   }
+    // }
   }, [x, y, width, height, vertical, mainHeight])
 
   return (
