@@ -25,6 +25,8 @@ const tagmap: Record<string, Record<string, any>> = {
   "Material UI": {backgroundColor: "#316768", color: "white"},
   "Ant Design": {backgroundColor: "#3C0A55", color: "white"},
   "Java Spring": {backgroundColor: "#4C611B", color: "white"},
+  "AWS": {backgroundColor: "#B42124", color: "white"},
+  "Azure": {backgroundColor: "#32B7BE", color: "white"},
   "SQLite": {backgroundColor: "#425F5D", color: "white"},
   "PostgreSQL": {backgroundColor: "#445352", color: "white"},
   "MongoDB": {backgroundColor: "#315731", color: "white"},
@@ -32,7 +34,7 @@ const tagmap: Record<string, Record<string, any>> = {
   "TensorFlow": {backgroundColor: "#66340B", color: "white"},
   "Neat-Python": {backgroundColor: "#8D1223", color: "white"},
   "Pandas/Numpy": {backgroundColor: "#423838", color: "white"},
-  "Cohere.AI": {backgroundColor: "#AA6129", color: "white"},
+  "Cohere": {backgroundColor: "#AA6129", color: "white"},
 };
 
 const Tag = ({name, screenType}:{name:string, screenType:number}) => {

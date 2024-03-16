@@ -37,7 +37,7 @@ const ProjectListing = ({data, response, screenType}:{data:Project, response:Fun
         </div>
         <div className="flex flex-col py-2 max-w-[75%] scale-[0.95] origin-left">
           {data.title}
-          <span className="text-lg italic">{data.subtitle}</span>
+          <span className="text-lg">{data.subtitle}</span>
         </div>
       </section>
       <section className={`flex w-full h-full items-center justify-end
@@ -186,10 +186,16 @@ export default function Index() {
     scale: [1.15, 0.8, "easeOut"]
   }).ref
 
+  // const p_experience = useParallax<any>({
+  //   opacity: [0, 1, "easeOut"],
+  //   translateY: ["300px", "0px"],
+  // }).ref
+
   const p_showcase = useParallax<any>({
     opacity: [0, 1, "easeOut"],
     translateY: ["300px", "0px"],
   }).ref
+  
 
   const p_projects = useParallax<any>({
     translateY: ["200px", "-100px"],
@@ -276,7 +282,7 @@ export default function Index() {
                 "I'm a full stack developer.", 3000,
                 "I'm an aspiring data scientist.", 3000,
                 //"I'm top 1000 Fizz mains NA.", 3000,
-                "I'm looking for 2024 summer co-op opportunities.", 3000,
+                "I'm an enthusiastic hobbyist.", 3000,
                 "I'm excited to be working with you!", 3000,
               ]}
               wrapper="span"
@@ -325,6 +331,23 @@ export default function Index() {
           </span>
         </div>
       </div>
+      {/* <div className="relative w-full flex flex-col items-center z-[100] gap-12 mb-[15rem]" ref={p_experience}>
+        <div className={`flex flex-col items-center
+        ${responsive(["scale-[0.7]", "scale-[0.825]", "scale-[0.9] mb-1",
+        "scale-[0.975] mb-5", "scale-[1.00] mb-5", "scale-[1.05] mb-5"])}`}>
+          <ParaTitle title="Experience"/>
+        </div>
+        <div>
+          <span className={`text-sky-50 
+          ${responsive(["text-[1.15rem] leading-[1.75rem]", "text-[1.35rem] leading-[2rem]", "text-2xl leading-[2.25rem]", 
+          "text-2xl leading-[2.5rem]", "text-3xl leading-[2.5rem]", "text-[2rem] leading-[2.5rem]"])}`}
+          style={{fontWeight:200}}>
+          Hi, I&apos;m John Liu! I&apos;m a student at the University of Waterloo with a profound interest in 
+          computer science, web development, and machine learning. When I&apos;m not facing a screen, I enjoy reading, 
+          running, and playing the piano. I also have a YouTube channel dedicated to contest math, feel free to check it out!
+          </span>
+        </div>
+      </div> */}
       <div className={`relative w-full flex flex-col items-center z-[100]
       ${responsive(["gap-4", "gap-4", "gap-5",
       "gap-5", "gap-6", "gap-6"])}`} ref={p_showcase}>
