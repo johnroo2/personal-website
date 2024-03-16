@@ -154,7 +154,7 @@ body:
   assessing individual behaviors in any group activity in a safe, unbiased 3D environment.
     </span>
     <span>Regardless of the setting - classroom, therapy group, training session, or other group learning/training setting - 
-      Let TCXR's patented platform empower teachers, leaders, clinicians, therapists, 
+      Let TCXR&apos;s patented platform empower teachers, leaders, clinicians, therapists, 
       and researchers to more accurately assess, identify, adjust and analyze behaviors.
     </span>
     <span>
