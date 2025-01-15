@@ -17,9 +17,9 @@ export default async function handler(req, res) {
       {
         From: { Email: email, Name: name },
         To: [{ Email: 'j369liu@uwaterloo.ca', Name: 'John Liu' }],
-        Subject: "For my personal website",
+        Subject: "FROM THE PERSONAL WEBSITE",
         TextPart: message,
-        HTMLPart: "<h3>Dear passenger 1, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!</h3><br />May the delivery force be with you!"
+        HTMLPart: `<h3>${message}</h3>`
       },
     ],
   });
