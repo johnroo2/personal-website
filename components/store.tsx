@@ -16,6 +16,10 @@ export type Project = {
   vercel?: string | undefined,
 }
 
+export type Experience = {
+
+}
+
 export const projectData: Project[] = [
   {
     cover: "/slimescholars-cover.png", icon: "/slimescholars-icon.png", banner: "/slimescholars-banner.png",

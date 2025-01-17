@@ -153,10 +153,10 @@ export default function Index() {
     scale: [1.15, 0.8, "easeOut"]
   }).ref
 
-  // const p_experience = useParallax<any>({
-  //   opacity: [0, 1, "easeOut"],
-  //   translateY: ["300px", "0px"],
-  // }).ref
+  const p_experience = useParallax<any>({
+    opacity: [0, 1, "easeOut"],
+    translateY: ["300px", "0px"],
+  }).ref
 
   const p_showcase = useParallax<any>({
     opacity: [0, 1, "easeOut"],
@@ -293,6 +293,13 @@ export default function Index() {
           </span>
         </div>
       </div>
+      {/* <div className="relative w-full flex flex-col items-center z-[100] gap-12 mb-[15rem]" ref={p_experience}>
+        <div className={`flex flex-col items-center
+        ${responsive(["scale-[0.7]", "scale-[0.825]", "scale-[0.9] mb-1",
+          "scale-[0.975] mb-5", "scale-[1.00] mb-5", "scale-[1.05] mb-5"])}`}>
+          <ParaTitle title="Experience" />
+        </div>
+      </div> */}
       <div className={`relative w-full flex flex-col items-center z-[100]
       ${responsive(["gap-4", "gap-4", "gap-5",
         "gap-5", "gap-6", "gap-6"])}`} ref={p_showcase}>
