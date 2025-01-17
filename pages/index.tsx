@@ -153,10 +153,10 @@ export default function Index() {
     scale: [1.15, 0.8, "easeOut"]
   }).ref
 
-  const p_experience = useParallax<any>({
-    opacity: [0, 1, "easeOut"],
-    translateY: ["300px", "0px"],
-  }).ref
+  // const p_experience = useParallax<any>({
+  //   opacity: [0, 1, "easeOut"],
+  //   translateY: ["300px", "0px"],
+  // }).ref
 
   const p_showcase = useParallax<any>({
     opacity: [0, 1, "easeOut"],
