@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
-        destination: "https://www.john-liu.dev/:path*",
+        destination: "https://john-liu.dev/:path*",
         permanent: true,
       },
     ];
